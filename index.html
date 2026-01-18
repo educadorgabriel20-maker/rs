@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite Especial 💕</title>
+  <style>
+    :root {
+      --bg1: #ff9a9e;
+      --bg2: #fad0c4;
+      --text: #333;
+      --btnYes: #38b000;
+      --btnNo: #d00000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 380px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin: 18px 0 0;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .buttons {
+      margin-top: 18px;
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      width: 45%;
+      max-width: 150px;
+      padding: 14px 0;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #yes {
+      background-color: var(--btnYes);
+      color: white;
+    }
+
+    #no {
+      background-color: var(--btnNo);
+      color: white;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Vem me dar um carinho? 💕</h1>
+    <p>Pfv 🥺</p>
+
+    <div class="buttons">
+      <button id="yes" onclick="clicouSim()">Sim 💖</button>
+      <button id="no" onclick="fugir()" onmouseover="fugir()">Não 😢</button>
+    </div>
+
+    <h2 id="resposta" class="hidden">
+      Vai parar de me enrolar 😌
+    </h2>
+  </div>
+
+  <script>
+    let contadorSim = 0;
+
+    function clicouSim() {
+      contadorSim++;
+
+      if (contadorSim >= 3) {
+        document.getElementById("resposta").classList.remove("hidden");
+      }
+    }
+
+    function fugir() {
+      const botao = document.getElementById("no");
+      const x = Math.random() * 160;
+      const y = Math.random() * 70;
+
+      botao.style.left = x + "px";
+      botao.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
